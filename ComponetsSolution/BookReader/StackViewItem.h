@@ -52,8 +52,8 @@ namespace BookReader
 				//this->Children->Append(this->ImageItem);				 
 				//this->Background = ref new Windows::UI::Xaml::Media::SolidColorBrush(Windows::UI::Colors::Bisque) ;
 				//this->LoadImages(this->thumb_source);
-				//this->ImageItem->Source =  ref new Windows::UI::Xaml::Media::Imaging::BitmapImage(ref new Windows::Foundation::Uri(thumb_source));					
-				LoadImages(value);
+				this->ImageItem->Source =  ref new Windows::UI::Xaml::Media::Imaging::BitmapImage(ref new Windows::Foundation::Uri(thumb_source));					
+				//LoadImages(value);
 			}
 
 			Platform::String^  get(){ return "";}

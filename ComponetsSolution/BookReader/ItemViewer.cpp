@@ -79,9 +79,12 @@ void ItemViewer::initanimations()
 #pragma region Manipulation Control
 
 //transferimos el estado del item
-void BookReader::ItemViewer::ItemViewerContentUpdateState_1(Platform::String^ sender, ItemContentManipulationState value)
+void BookReader::ItemViewer::ItemViewerContentUpdateState_1(Platform::String^ sender, bool _value)
 {
-	OnItemViewerUpdateState(this, (SliderManipulationState)value); // 0->enable : 1 ->dislable
+	//OnItemViewerUpdateState(this, (SliderManipulationState)value); // 0->enable : 1 ->dislable
+	ItemViewerManipulationEnable(this, _value ) ;
+	
+
 }
 
 #pragma endregion

@@ -17,3 +17,15 @@ ItemViewerContent::ItemViewerContent()
 {
 
 }
+
+
+#pragma region ImageItem 
+		
+void ItemViewerContent::loaditem()
+{
+	this->_itemimage =  ref new Image();
+	this->_itemimage->Source =  ref new Windows::UI::Xaml::Media::Imaging::BitmapImage(ref new Windows::Foundation::Uri(_itemdata));	
+	this->Children->Append(_itemimage);
+}
+
+#pragma endregion

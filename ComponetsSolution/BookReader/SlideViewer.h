@@ -10,12 +10,14 @@ namespace BookReader
 		Dislable
 	};
 
-
+	public delegate void SlideViewerItemChangedEventHandler(Platform::Object^ sender,  int32 _item);
 
 	public ref class SlideViewer sealed : public Windows::UI::Xaml::Controls::Grid
 	{
 	public:
 		SlideViewer();
+
+		event SlideViewerItemChangedEventHandler ^ SlideViewerItemChanged ;
 
 		property Windows::Foundation::Collections::IVector<Platform::String^>^ MediumPaths
 		{
@@ -98,6 +100,7 @@ namespace BookReader
 			void set(float64 value)
 			{  //falta setter para cuando ya estan creados
 				this->_currentitem = (int32)value ;
+				this->_currentitemduplicate = _currentitem ;
 				this->_paneltransform->TranslateX = (-1)*_itemwidth * value ;
 			}
 			float64 get(){return this->_currentitem ;}
@@ -126,7 +129,7 @@ namespace BookReader
 		float64 _itemwidth, _itemheight ;
 		float64 _minscale;
 		float64 _currenttranslate;
-		int32  _numberofitems, _numberofpointers, _currentitem ;
+		int32  _numberofitems, _numberofpointers, _currentitem , _currentitemduplicate;
 		float64 _mintranslate, _maxtranslate;
 		float64 _initialtranslate, _finaltranslate ;
 		
@@ -143,7 +146,7 @@ namespace BookReader
 		void Slider_ManipulationInertiaStarting_1(Platform::Object^ sender, Windows::UI::Xaml::Input::ManipulationInertiaStartingRoutedEventArgs^ e);
 
 		//Capture event item
-		void ItemViewerUpdateState_1(Platform::Object^ sender , SliderManipulationState state);
+		void ItemViewerUpdateState_1(Platform::Object^ sender , bool _value);
 
 	};
 }

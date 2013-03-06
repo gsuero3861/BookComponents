@@ -149,6 +149,13 @@ void BookReader::SlideViewer::Slider_ManipulationCompleted_1(Platform::Object^ s
 		}
 		this->_translatestory->Begin();
 	}
+	///throw when change the current item
+	if(_currentitem != _currentitemduplicate)
+	{
+		_currentitemduplicate = _currentitem ;
+		SlideViewerItemChanged(this, _currentitem);
+	}
+
 	this->_manipulationstate = SliderManipulationState::Dislable ;
 	this->_numberofpointers = 0 ;
 }
@@ -168,9 +175,13 @@ void BookReader::SlideViewer::Slider_ManipulationInertiaStarting_1(Platform::Obj
 
 #pragma region Item Manipulation
 
-void BookReader::SlideViewer::ItemViewerUpdateState_1(Platform::Object^ sender , SliderManipulationState state)
+void BookReader::SlideViewer::ItemViewerUpdateState_1(Platform::Object^ sender , bool _value)
 {
-	_manipulationstate  = state ;
+	//_manipulationstate  = state ;
+	if(_value)
+		this->_manipulationstate = SliderManipulationState::Dislable ;
+	else
+		this->_manipulationstate = SliderManipulationState::Enable ;
 }
 
 #pragma endregion

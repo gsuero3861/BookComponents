@@ -66,6 +66,8 @@
       <Filter>BookData</Filter>
     </ClCompile>
     <ClCompile Include="TestPage.xaml.cpp" />
+    <ClCompile Include="StackTest.xaml.cpp" />
+    <ClCompile Include="ItemViewerContent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
@@ -101,6 +103,8 @@
       <Filter>BookData</Filter>
     </ClInclude>
     <ClInclude Include="TestPage.xaml.h" />
+    <ClInclude Include="StackTest.xaml.h" />
+    <ClInclude Include="ItemViewerContent.h" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest" />

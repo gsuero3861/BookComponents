@@ -139,6 +139,7 @@
     <ClInclude Include="ChapterViewer.h" />
     <ClInclude Include="DynamicBackground.h" />
     <ClInclude Include="ItemViewer.h" />
+    <ClInclude Include="ItemViewerContent.h" />
     <ClInclude Include="ParallaxBackground.h" />
     <ClInclude Include="ParallaxConverter.h" />
     <ClInclude Include="pch.h" />
@@ -219,6 +220,7 @@
     <ClCompile Include="ChapterViewer.cpp" />
     <ClCompile Include="DynamicBackground.cpp" />
     <ClCompile Include="ItemViewer.cpp" />
+    <ClCompile Include="ItemViewerContent.cpp" />
     <ClCompile Include="MainPage.xaml.cpp">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </ClCompile>

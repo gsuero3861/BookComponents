@@ -2,17 +2,18 @@
 
 
 namespace BookReader
-{
+{  
 
 	public delegate void ItemViewerManipulationStartedEventHandler(Platform::Object^ sender , int32 item);
-	public delegate void ItemViewerManipulationFinishedEventHandler(Platform::Object^ sender , int32 item);
-	public delegate void ItemViewerUpdateStateEventHandler(Platform::Object^ sender , SliderManipulationState state);
+	public delegate void ItemViewerManipulationFinishedEventHandler(Platform::Object^ sender , int32 item); 
+
+	public delegate void ItemViewerManipulationEnableEventHandler(Platform::Object^ sender , bool _state);
 
 	public ref class ItemViewer sealed : public Windows::UI::Xaml::Controls::Grid
 	{
 	public:
 		ItemViewer(); 
-		event ItemViewerUpdateStateEventHandler ^ OnItemViewerUpdateState ;
+		event ItemViewerManipulationEnableEventHandler ^ ItemViewerManipulationEnable  ;
 
 		void AnimateToFull();
 		void AnimateToMedium();
@@ -99,7 +100,7 @@ namespace BookReader
 		Windows::UI::Xaml::Media::Animation::DoubleAnimation ^ _scaleanimationX;
 		Windows::UI::Xaml::Media::Animation::DoubleAnimation ^ _scaleanimationY;
 
-		void ItemViewerContentUpdateState_1(Platform::String^ sender, ItemContentManipulationState value);
+		void ItemViewerContentUpdateState_1(Platform::String^ sender, bool _value);
 
 		void initanimations();
 	};
