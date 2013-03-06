@@ -76,6 +76,7 @@ void SlideViewer::loaditems()
 		_tmpitem->ItemWidth = _itemwidth ;
 		_tmpitem->ItemHeight= _itemheight ;
 		_tmpitem->MinScale = _minscale ;
+		_tmpitem->ItemData = _mediumpaths->GetAt(i); 
 		this->_itemspanel->Children->Append(_tmpitem);
 		if(i<this->_currentitem)
 			_tmpitem->SetToLeft();
@@ -164,3 +165,12 @@ void BookReader::SlideViewer::Slider_ManipulationInertiaStarting_1(Platform::Obj
 		e->TranslationBehavior->DesiredDeceleration = 100.0 * 96.0 / (1000.0*1000.0) ; 
 	}
 }
+
+#pragma region Item Manipulation
+
+void BookReader::SlideViewer::ItemViewerUpdateState_1(Platform::Object^ sender , SliderManipulationState state)
+{
+	_manipulationstate  = state ;
+}
+
+#pragma endregion

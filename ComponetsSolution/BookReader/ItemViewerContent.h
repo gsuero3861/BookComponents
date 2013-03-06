@@ -2,18 +2,23 @@
 
 
 namespace BookReader
-{
+{  
 
-	public delegate void ItemViewerContentManipulationStartedEventHandler(Platform::Object^ sender , int32 item);
-	public delegate void ItemViewerContentManipulationFinishedEventHandler(Platform::Object^ sender , int32 item);
-	public delegate void ItemViewerContentUpdateStateEventHandler();
+	public enum class ItemContentManipulationState
+	{
+		Dislable,//this item is not being manipulating
+		Enable	//this item is being manipulating
+	};
+
+
+	public delegate void ItemViewerContentUpdateStateEventHandler(Platform::Object^ sender , ItemContentManipulationState state);
 
 	public ref class ItemViewerContent sealed : public Windows::UI::Xaml::Controls::Grid
 	{
 	public:
 		ItemViewerContent();
 		event ItemViewerContentUpdateStateEventHandler ^ OnItemViewerContentUpdateState ;
-		property Platform::String^ DataItem
+		property Platform::String^ ItemData
 		{
 			void set(Platform::String^ value){}
 			Platform::String^ get(){ return nullptr ;}

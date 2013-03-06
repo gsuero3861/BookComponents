@@ -16,6 +16,7 @@
 #include "BookData\ChapterDataSource.h"
 #include "BookData\BookDataSource.h"
 
+#include "ItemViewerContent.h"
 #include "StackViewItem.h"
 #include "StackView.h"
 #include "ItemViewer.h"

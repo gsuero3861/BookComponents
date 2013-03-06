@@ -20,6 +20,9 @@ ItemViewer::ItemViewer()
 	this->_itemtransform =  ref new CompositeTransform();
 	this->_itemcontainer->RenderTransform = _itemtransform ;
 	this->Children->Append(_itemcontainer);
+	//load item content
+	this->_itemcontent =  ref new ItemViewerContent();
+	this->_itemcontainer->Children->Append(this->_itemcontent);
 	initanimations();
 }
 
@@ -72,3 +75,13 @@ void ItemViewer::initanimations()
 	Windows::UI::Xaml::Media::Animation::Storyboard::SetTargetProperty(this->_scaleanimationY , "ScaleY") ;
 
 }
+
+#pragma region Manipulation Control
+
+//transferimos el estado del item
+void BookReader::ItemViewer::ItemViewerContentUpdateState_1(Platform::String^ sender, ItemContentManipulationState value)
+{
+	OnItemViewerUpdateState(this, (SliderManipulationState)value); // 0->enable : 1 ->dislable
+}
+
+#pragma endregion

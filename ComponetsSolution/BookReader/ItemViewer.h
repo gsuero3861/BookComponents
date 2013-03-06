@@ -3,10 +3,17 @@
 
 namespace BookReader
 {
+
+	public delegate void ItemViewerManipulationStartedEventHandler(Platform::Object^ sender , int32 item);
+	public delegate void ItemViewerManipulationFinishedEventHandler(Platform::Object^ sender , int32 item);
+	public delegate void ItemViewerUpdateStateEventHandler(Platform::Object^ sender , SliderManipulationState state);
+
 	public ref class ItemViewer sealed : public Windows::UI::Xaml::Controls::Grid
 	{
 	public:
-		ItemViewer();
+		ItemViewer(); 
+		event ItemViewerUpdateStateEventHandler ^ OnItemViewerUpdateState ;
+
 		void AnimateToFull();
 		void AnimateToMedium();
 		void SetToLeft();
@@ -67,15 +74,32 @@ namespace BookReader
 			float64 get(){return 0 ;}
 		}
 
+		property int32 ItemNumber
+		{
+			void set(int32 value){this->_itemnumber = value ; 			}
+			int32 get(){return this->_itemnumber ;}
+		}
+
+		property Platform::String^ ItemData
+		{
+			void set(Platform::String^ value){this->_itemcontent->ItemData = value ;}
+			Platform::String^ get(){ return this->_itemcontent->ItemData  ;}
+		}
+
 	private:
 
 		float64 _itemwidth, _itemheight , _minscale;
+		int32 _itemnumber ;
 		Windows::UI::Xaml::Controls::Grid ^ _itemcontainer ;
 		Windows::UI::Xaml::Media::CompositeTransform^ _itemtransform ;
+		///Itemcontent
+		ItemViewerContent ^_itemcontent ;
 
 		Windows::UI::Xaml::Media::Animation::Storyboard ^ _animation_story ;
 		Windows::UI::Xaml::Media::Animation::DoubleAnimation ^ _scaleanimationX;
 		Windows::UI::Xaml::Media::Animation::DoubleAnimation ^ _scaleanimationY;
+
+		void ItemViewerContentUpdateState_1(Platform::String^ sender, ItemContentManipulationState value);
 
 		void initanimations();
 	};

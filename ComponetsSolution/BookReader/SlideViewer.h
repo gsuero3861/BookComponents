@@ -11,6 +11,7 @@ namespace BookReader
 	};
 
 
+
 	public ref class SlideViewer sealed : public Windows::UI::Xaml::Controls::Grid
 	{
 	public:
@@ -140,5 +141,9 @@ namespace BookReader
 		void Slider_ManipulationDelta_1(Platform::Object^ sender, Windows::UI::Xaml::Input::ManipulationDeltaRoutedEventArgs^ e);
 		void Slider_ManipulationCompleted_1(Platform::Object^ sender, Windows::UI::Xaml::Input::ManipulationCompletedRoutedEventArgs^ e);
 		void Slider_ManipulationInertiaStarting_1(Platform::Object^ sender, Windows::UI::Xaml::Input::ManipulationInertiaStartingRoutedEventArgs^ e);
+
+		//Capture event item
+		void ItemViewerUpdateState_1(Platform::Object^ sender , SliderManipulationState state);
+
 	};
 }
