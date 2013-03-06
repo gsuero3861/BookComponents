@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Common">
+      <UniqueIdentifier>d273fe7d-a833-4726-a401-328291681d01</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets">
+      <UniqueIdentifier>7ca5195f-e8a1-451a-9fd4-f7c7758e2992</UniqueIdentifier>
+    </Filter>
+    <Page Include="Common\StandardStyles.xaml">
+      <Filter>Common</Filter>
+    </Page>
+    <Image Include="Assets\Logo.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\SmallLogo.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\StoreLogo.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\SplashScreen.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Filter Include="images">
+      <UniqueIdentifier>{14d119ac-4769-449c-91d8-00cf0b21f6a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BookData">
+      <UniqueIdentifier>{358720f5-45ed-49e5-bfe0-bc7fa06bbd5d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="App.xaml.cpp" />
+    <ClCompile Include="MainPage.xaml.cpp" />
+    <ClCompile Include="pch.cpp" />
+    <ClCompile Include="StackViewItem.cpp" />
+    <ClCompile Include="StackView.cpp" />
+    <ClCompile Include="ItemViewer.cpp" />
+    <ClCompile Include="SlideViewer.cpp" />
+    <ClCompile Include="ParallaxConverter.cpp" />
+    <ClCompile Include="BookViewer.cpp" />
+    <ClCompile Include="ChapterViewer.cpp" />
+    <ClCompile Include="TextView.cpp" />
+    <ClCompile Include="VideoView.cpp" />
+    <ClCompile Include="DynamicBackground.cpp" />
+    <ClCompile Include="ParallaxBackground.cpp" />
+    <ClCompile Include="BookData\BookDataSource.cpp">
+      <Filter>BookData</Filter>
+    </ClCompile>
+    <ClCompile Include="BookData\StackDataSource.cpp">
+      <Filter>BookData</Filter>
+    </ClCompile>
+    <ClCompile Include="BookData\BindableSourceBase.cpp">
+      <Filter>BookData</Filter>
+    </ClCompile>
+    <ClCompile Include="BookData\TextDataSource.cpp">
+      <Filter>BookData</Filter>
+    </ClCompile>
+    <ClCompile Include="BookData\VideoDataSource.cpp">
+      <Filter>BookData</Filter>
+    </ClCompile>
+    <ClCompile Include="BookData\ChapterDataSource.cpp">
+      <Filter>BookData</Filter>
+    </ClCompile>
+    <ClCompile Include="TestPage.xaml.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="App.xaml.h" />
+    <ClInclude Include="MainPage.xaml.h" />
+    <ClInclude Include="StackViewItem.h" />
+    <ClInclude Include="StackView.h" />
+    <ClInclude Include="ItemViewer.h" />
+    <ClInclude Include="SlideViewer.h" />
+    <ClInclude Include="ParallaxConverter.h" />
+    <ClInclude Include="BookViewer.h" />
+    <ClInclude Include="ChapterViewer.h" />
+    <ClInclude Include="TextView.h" />
+    <ClInclude Include="VideoView.h" />
+    <ClInclude Include="DynamicBackground.h" />
+    <ClInclude Include="ParallaxBackground.h" />
+    <ClInclude Include="BookData\BookDataSource.h">
+      <Filter>BookData</Filter>
+    </ClInclude>
+    <ClInclude Include="BookData\StackDataSource.h">
+      <Filter>BookData</Filter>
+    </ClInclude>
+    <ClInclude Include="BookData\BindableSourceBase.h">
+      <Filter>BookData</Filter>
+    </ClInclude>
+    <ClInclude Include="BookData\TextDataSource.h">
+      <Filter>BookData</Filter>
+    </ClInclude>
+    <ClInclude Include="BookData\VideoDataSource.h">
+      <Filter>BookData</Filter>
+    </ClInclude>
+    <ClInclude Include="BookData\ChapterDataSource.h">
+      <Filter>BookData</Filter>
+    </ClInclude>
+    <ClInclude Include="TestPage.xaml.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="BookReader_TemporaryKey.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="MainPage.xaml" />
+    <Page Include="TestPage.xaml" />
+    <Page Include="StackTest.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="images\img0.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\img1.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\img2.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\img3.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\img4.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\img5.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\img6.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\img7.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\img8.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\img9.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\img10.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\img11.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\img12.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\img13.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\img14.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\img15.jpg">
+      <Filter>images</Filter>
+    </Image>
+  </ItemGroup>
+</Project>
