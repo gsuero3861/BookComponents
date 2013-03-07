@@ -24,6 +24,10 @@ StackSlider::StackSlider()
 
 void StackSlider::initstackscontrols()
 {
+	//init the current stack and its current item
+	this->_currentstack = 0 ;
+	this->_currentstackitem = 0 ;
+
 	this->_gridstacks = ref new Grid(); 
 	this->Children->Append(this->_gridstacks);
 
@@ -60,6 +64,7 @@ void StackSlider::loadstacks()
 		StackView^ Stackview1 = ref new StackView();
 		Stackview1->StackViewItemHeight = this->_stackitemheight ;
 		Stackview1->StackViewItemWidth = this->_stackitemwidth ;
+		Stackview1->StackViewMargin = 100 ;
 		Stackview1->DeltaItemSeparation = 40 ;
 		Stackview1->FullScreenX = 50 ;
 		Stackview1->FullScreenY = 0.0 ;

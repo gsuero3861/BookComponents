@@ -83,7 +83,19 @@ void StackView::initstackview()
 	this->_thumbsgrid->Tapped += ref new TappedEventHandler(this, &BookReader::StackView::ThumbsGrid_Tapped_1 );
 	this->_thumbsgrid->ManipulationCompleted += ref new ManipulationCompletedEventHandler(this, &BookReader::StackView::ThumbsGrid_ManipulationCompleted_1);
 	this->_thumbsgrid->ManipulationDelta += ref new ManipulationDeltaEventHandler(this, &BookReader::StackView::ThumbsGrid_ManipulationDelta_1);
-	this->Children->Append(this->_thumbsgrid);
+
+	//init panelcontainer
+	this->_firstitem =  ref new Grid();
+	this->_lastitem =  ref new Grid();
+	this->_panelcontainer = ref new StackPanel();
+	this->_panelcontainer->Orientation = Orientation::Horizontal ;
+	this->Children->Append(this->_panelcontainer);
+
+	///Add the _thumbsgrid to panelcontainer
+	this->_panelcontainer->Children->Append(this->_firstitem );
+	this->_panelcontainer->Children->Append(this->_thumbsgrid );
+	this->_panelcontainer->Children->Append(this->_lastitem );
+
 	this->_thumbsgrid->HorizontalAlignment =  Windows::UI::Xaml::HorizontalAlignment::Center ;
 	this->_thumbsgrid->ManipulationMode  = ManipulationModes::All ;
 	this->_thumbsgrid->Background = ref new SolidColorBrush(Windows::UI::Colors::Transparent);

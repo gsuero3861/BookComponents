@@ -70,7 +70,7 @@ void StackViewItem::AnimateItem()
 		AnimateToThumb();
 		this->translateY_animation->To =0.0;
 		this->translateY_story->Begin();
-		Canvas::SetZIndex(this, 1);//hacerlo cuando termine la animacion
+		//Canvas::SetZIndex(this, 1);//hacerlo cuando termine la animacion
 	}
 	this->_number_of_pointers = 0 ;
 	
@@ -117,6 +117,8 @@ void StackViewItem::InitAnimationProperties()
 	this->scale_story->Children->Append(scaleY_animation);
 	Windows::UI::Xaml::Media::Animation::Storyboard::SetTarget(this->scaleY_animation, this->stackviewitem_transform) ;
 	Windows::UI::Xaml::Media::Animation::Storyboard::SetTargetProperty(this->scaleY_animation , "ScaleY") ;
+
+	this->scale_story->Completed += ref new EventHandler<Platform::Object^>(this, &BookReader::StackViewItem::ScaleStoryboard_Completed_1);
 }
 
 void StackViewItem::LoadImages(Platform::String ^ uri)
@@ -233,7 +235,7 @@ void BookReader::StackViewItem::Item_PointerReleased_1(Platform::Object^ sender,
 	//this->_number_of_pointers -= 1 ; 
 	if(this->_number_of_pointers < 1)
 	{
-		Canvas::SetZIndex(this, 1);
+		Canvas::SetZIndex(this, 50);
 	}
 }
 
@@ -282,6 +284,13 @@ void BookReader::StackViewItem::Item_ManipulationInertiaStarting_1(Platform::Obj
 void BookReader::StackViewItem::Item_Tapped_1(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
 	
+}
+
+
+void BookReader::StackViewItem::ScaleStoryboard_Completed_1(Platform::Object^ sender, Platform::Object^ e)
+{
+	if(this->stackviewitem_transform->ScaleX < 1.2)
+		Canvas::SetZIndex(this, 1);
 }
 
 

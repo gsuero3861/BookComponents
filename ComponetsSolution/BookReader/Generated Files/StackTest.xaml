@@ -19,11 +19,11 @@
         </ScrollViewer>
 
         <local:SlideViewer x:Name="slider1" Visibility="Collapsed" ></local:SlideViewer>
-        
-         
-         
-        
 
-    </Grid>
+
+         
+
+
+        </Grid>
 </Page>
 

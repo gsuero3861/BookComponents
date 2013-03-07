@@ -26,5 +26,6 @@ namespace BookReader
 		BookData::StackDataSource ^ stack1 ; 
 		Platform::Collections::Vector<Platform::String^> ^paths2 ;	
 		BookData::StackDataSource ^ stack2 ; 
+		void Storyboard_Completed_1(Platform::Object^ sender, Platform::Object^ e);
 	};
 }

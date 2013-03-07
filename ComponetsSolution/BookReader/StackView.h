@@ -43,12 +43,21 @@ namespace BookReader
 		ItemManipulation
 	};
 
+
+	public delegate void StackManipulationStartedEventHandler(Platform::Object ^ sender , int32 args);
+	public delegate void StackManipulationFinishedEventHandler(Platform::Object ^ sender , int32 args);
+
+
+
 	public ref class StackView sealed : public Windows::UI::Xaml::Controls::Grid
 	{
-#pragma region Constructor
+#pragma region Constructor and Events
 	public  :
 
 		StackView();	
+
+		event StackManipulationStartedEventHandler ^ StackManipulationStarted ;
+		event StackManipulationFinishedEventHandler ^ StackManipulationFinished ; 
 
 #pragma endregion
 
@@ -188,19 +197,41 @@ namespace BookReader
 			}
 		}
 
-		//size of all the stack
+		//size of all the stack ->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 		property float64 StackViewHeight
 		{
-			void set(float64 value) { this->Height = value ; }
+			void set(float64 value) 
+			{ 
+				//this->Height = value ; 
+				this->_firstitem->Height = value;
+				this->_lastitem->Height = value ;
+			}
 			float64 get(){return 0 ;}
 		}
 
 		//size of all the stack 
 		property float64 StackViewWidth
 		{
-			void set(float64 value) { this->Width = value ; }
+			void set(float64 value) 
+			{
+				this->_firstitem->Height = value;
+				this->_lastitem->Height = value ;
+			}
 			float64 get(){return 0 ;}
 		}
+
+		property float64 StackViewMargin
+		{
+			void set(float64 value) 
+			{
+				this->_firstitem->Height = value;
+				this->_lastitem->Height = value ;
+				this->_firstitem->Width = value;
+				this->_lastitem->Width = value ;
+			}
+			float64 get(){return 0 ;}
+		}
+
 
 		//position when an iten is full screen
 		property float64 FullScreenX 
@@ -285,8 +316,11 @@ namespace BookReader
 		StackViewTouches _currenttouches ;
 		StackViewManipulationMode _currentmanipulationmode ;
 		StackViewManipulationState _currentmanipulationstate;
-		 StackManipulationType _stackmanipulationtype ;
-
+		StackManipulationType _stackmanipulationtype ;
+		//Stack Adicional para controlar el ancho del stack
+		Windows::UI::Xaml::Controls::StackPanel^ _panelcontainer ;
+		Windows::UI::Xaml::Controls::Grid ^ _firstitem ;
+		Windows::UI::Xaml::Controls::Grid ^ _lastitem ;
 		///Controles principales  => 1 : los thumbs 2: fullscreen
 		Windows::UI::Xaml::Controls::Grid ^ _thumbsgrid ;
 		Windows::UI::Xaml::Controls::Grid ^ _fullscreengrid ;	

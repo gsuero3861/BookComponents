@@ -41,12 +41,15 @@ namespace BookReader
 	private:
 		Windows::Foundation::Collections::IVector<BookData::StackDataSource^> ^ _datasource ;
 		float64 _stackitemheight, _stackitemwidth ;
+		int32 _currentstack, _currentstackitem ;//start at 0,1,2...
+
 
 		Windows::UI::Xaml::Controls::ScrollViewer^ _itemsscroll ;
 		Windows::UI::Xaml::Controls::StackPanel^ _itemspanel ;
 		Windows::UI::Xaml::Controls::Grid^ _gridstacks ;
 		void initstackscontrols();
 		void loadstacks() ;
+
 #pragma endregion
 
 #pragma region Slider

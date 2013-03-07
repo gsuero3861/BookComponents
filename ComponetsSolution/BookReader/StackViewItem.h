@@ -245,6 +245,8 @@ namespace BookReader
 		Windows::UI::Xaml::Media::Animation::DoubleAnimation ^ scaleX_animation ;
 		Windows::UI::Xaml::Media::Animation::DoubleAnimation ^ scaleY_animation ;
 
+		void ScaleStoryboard_Completed_1(Platform::Object^ sender, Platform::Object^ e);
+
 
 	};
 }

@@ -84,4 +84,9 @@ void StackTest::loaddata()
 
 
  
- 
+
+
+void BookReader::StackTest::Storyboard_Completed_1(Platform::Object^ sender, Platform::Object^ e)
+{
+
+}
