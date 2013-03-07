@@ -49,6 +49,10 @@ namespace BookReader
 		Windows::UI::Xaml::Controls::Grid^ _gridstacks ;
 		void initstackscontrols();
 		void loadstacks() ;
+		//to control the stack is being manipulated
+		void StackManipulationStarted_1(Platform::Object ^ sender , int32 args);
+		void StackManipulationFinished_1(Platform::Object ^ sender , int32 stacknumber, int32 citem); 
+		void StackAnimationCompleted_1(Platform::Object ^ sender , int32 stacknumber);
 
 #pragma endregion
 

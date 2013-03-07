@@ -34,10 +34,14 @@ StackView::StackView()
 void StackView::loaddatasource()
 { 
 	this->_numberofitems = this->_datasource->ThumbsList->Size ;
+	
 	this->_maxsthumbsgridcale = _numberofitems  ;
 	LoadItems();
 	for (int i = 0; i < _numberofitems ; i++)
 		((StackViewItem^)this->_thumbsgrid->Children->GetAt(i))->MediumSource = this->_datasource->MediumList->GetAt(i);
+
+	this->_mediumitemlist = this->_datasource->MediumList ;
+	this->_fullscreenitemlist = this->_datasource->FullPageList ;
 }
 
 void StackView::LoadItems()
@@ -171,6 +175,7 @@ void StackView::closethumbstack()
 	this->_currentthumbsgridscale = 1.0 ;
 }
 
+///ITEM MANIPULATION EVENT
 void BookReader::StackView::StackViewItemManipulationStarted_1(Platform::Object ^ sender , int32 _currentitem)
 {
 
@@ -189,8 +194,17 @@ void BookReader::StackView::StackViewItemManipulationStarted_1(Platform::Object 
 
 }
 
+///ITEM ANIMATION COMPLETED ->ONLY WHEN IS TO FULL
+void BookReader::StackView::StackViewItemAnimationCompleted_1(Platform::Object ^ sender , int32 _currentitem)
+{
+	StackAnimationCompleted(this, this->_stacknumber);
+}
+
 void BookReader::StackView::ThumbsGrid_Tapped_1(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
+	this->_thumbsgrid->Width = this->_currentthumbsgridscale * ( this->_stackviewitemwidth + this->_deltaseparation ) ;
+	if(_currentstate == StackViewState::Close)
+		openthumbstack();
 }
 
 void BookReader::StackView::ThumbsGrid_PointerReleased_1(Platform::Object^ sender, Windows::UI::Xaml::Input::PointerRoutedEventArgs^ e)
@@ -268,8 +282,9 @@ void BookReader::StackView::ThumbsGrid_ManipulationCompleted_1(Platform::Object^
 		if( this->_stackmanipulationtype == StackManipulationType::ItemManipulation)
 		{
 			((StackViewItem^)this->_thumbsgrid->Children->GetAt(_currentselecteditem))->AnimateItem();
-
 		}
+
+		StackManipulationFinished(this, this->_stacknumber , this->_currentselecteditem);
 	}
 
 	this->_numberofpointers = 0 ;
@@ -301,6 +316,8 @@ bool StackView::zero_pointerpressed()
 bool StackView::one_pointerpresses()
 {
 	this->_currenttouches = StackViewTouches::TwoTouches; 
+	///throw the event manipulationstarted
+	StackManipulationStarted(this, this->_stacknumber);
 	return true ;
 }
 	

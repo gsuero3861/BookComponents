@@ -291,6 +291,9 @@ void BookReader::StackViewItem::ScaleStoryboard_Completed_1(Platform::Object^ se
 {
 	if(this->stackviewitem_transform->ScaleX < 1.2)
 		Canvas::SetZIndex(this, 1);
+	else
+		StackViewItemAnimationCompleted(this, this->_item_number);
+	
 }
 
 

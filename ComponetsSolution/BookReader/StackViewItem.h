@@ -26,6 +26,7 @@ namespace BookReader
 	*/
 	///ocurre cuando se inicia la manipulacion del item -> bloquea  todo lo demas
 	public delegate void StackViewItemManipulationStartedEventHandler(Platform::Object ^ sender , int32 _currentitem);
+	public delegate void StackViewItemAnimationCompletedEventHandler(Platform::Object ^ sender , int32 _currentitem);
 
 	[Windows::Foundation::Metadata::WebHostHidden]
 	public ref class StackViewItem sealed : public Windows::UI::Xaml::Controls::Grid 
@@ -41,6 +42,7 @@ namespace BookReader
 		void Close();	
 
 		event StackViewItemManipulationStartedEventHandler ^ OnStackViewItemManipulationStarted ; 
+		event StackViewItemAnimationCompletedEventHandler ^ StackViewItemAnimationCompleted  ;  //ocurr when a manipulation ius completed
 
 		property Platform::String^ ThumbSource
 		{

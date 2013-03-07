@@ -45,7 +45,8 @@ namespace BookReader
 
 
 	public delegate void StackManipulationStartedEventHandler(Platform::Object ^ sender , int32 args);
-	public delegate void StackManipulationFinishedEventHandler(Platform::Object ^ sender , int32 args);
+	public delegate void StackManipulationFinishedEventHandler(Platform::Object ^ sender , int32 stacknumber, int32 citem);
+	public delegate void StackAnimationCompletedEventHandler(Platform::Object ^ sender , int32 stacknumber);
 
 
 
@@ -58,6 +59,7 @@ namespace BookReader
 
 		event StackManipulationStartedEventHandler ^ StackManipulationStarted ;
 		event StackManipulationFinishedEventHandler ^ StackManipulationFinished ; 
+		event StackAnimationCompletedEventHandler ^ StackAnimationCompleted ;
 
 #pragma endregion
 
@@ -88,26 +90,26 @@ namespace BookReader
 			}
 			Windows::Foundation::Collections::IVector<Platform::String^>^ get(){ return nullptr ; }
 		}
-
+		*/
 		property Windows::Foundation::Collections::IVector<Platform::String^> ^ MediumItemsList
 		{		
 			void set( Windows::Foundation::Collections::IVector<Platform::String^> ^ value  )
 			{
 				this->_mediumitemlist = value ; 				 
-				for (int i = 0; i < _numberofitems ; i++)
+				/**for (int i = 0; i < _numberofitems ; i++)
 				{  
 					((StackViewItem^)this->_thumbsgrid->Children->GetAt(i))->MediumSource = this->_mediumitemlist->GetAt(i);
-				}
+				}*/
 			}
-			Windows::Foundation::Collections::IVector<Platform::String^>^ get(){ return nullptr ; }
+			Windows::Foundation::Collections::IVector<Platform::String^>^ get(){ return this->_mediumitemlist ; }
 		}
 
 		property Windows::Foundation::Collections::IVector<Platform::String^> ^ FullScreenItemsList
 		{							
 			void set( Windows::Foundation::Collections::IVector<Platform::String^> ^ value  ){ this->_fullscreenitemlist = value ; }
-			Windows::Foundation::Collections::IVector<Platform::String^>^ get(){ return nullptr ; }
+			Windows::Foundation::Collections::IVector<Platform::String^>^ get(){ return this->_fullscreenitemlist ; }
 		}
-		*/
+		
 		//height  of each item
 		property float64 StackViewItemHeight
 		{
@@ -259,18 +261,29 @@ namespace BookReader
 			}
 		}
 
+		//to send when ocurr teh manipulation event
+		property int32  StackNumber
+		{
+			int32 get(){ return this->_stacknumber ;}
+			void set(int32 value)
+			{ 
+				this->_stacknumber  =  value ;
+			}
+		}
+
 	private :
 				
-		///references to the sets of paths to the diferrents resolutions of images
-		/**Windows::Foundation::Collections::IVector<Platform::String^> ^ _thumbitemlist ;
+		///references to the sets of paths to the diferrents resolutions of images => CHANGED FOR THE DATASOURCE
+		/**Windows::Foundation::Collections::IVector<Platform::String^> ^ _thumbitemlist ;*/
 		Windows::Foundation::Collections::IVector<Platform::String^> ^ _mediumitemlist ;
-		Windows::Foundation::Collections::IVector<Platform::String^> ^ _fullscreenitemlist ; */
+		Windows::Foundation::Collections::IVector<Platform::String^> ^ _fullscreenitemlist ; 
 	
 		///variables auxliares -> properties
 		float64 _stackviewitemheight,  _stackviewitemwidth ;
 		float64 _deltaseparation ; //separation between each item
 		float64 _fullscreenheight, _fullscreenwidth ; //max width and height del item full screen
 		float64 _fullscreenX , _fullscreenY ; //horizontal and vertical position when an item is full screen
+		int32 _stacknumber ;
 
 #pragma endregion
 
@@ -345,6 +358,7 @@ namespace BookReader
 		void setGridThumbAnimation();
 		
 		void StackViewItemManipulationStarted_1(Platform::Object ^ sender , int32 _currentitem);
+		void StackViewItemAnimationCompleted_1(Platform::Object ^ sender , int32 _currentitem);
 		
 		void ThumbsGrid_Tapped_1(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e);
 		void ThumbsGrid_ManipulationStarted_1(Platform::Object^ sender, Windows::UI::Xaml::Input::ManipulationStartedRoutedEventArgs^ e);
@@ -352,6 +366,8 @@ namespace BookReader
 		void ThumbsGrid_ManipulationDelta_1(Platform::Object^ sender, Windows::UI::Xaml::Input::ManipulationDeltaRoutedEventArgs^ e);
 		void ThumbsGrid_PointerReleased_1(Platform::Object^ sender, Windows::UI::Xaml::Input::PointerRoutedEventArgs^ e);
 		void ThumbsGrid_PointerPressed_1(Platform::Object^ sender, Windows::UI::Xaml::Input::PointerRoutedEventArgs^ e);
+
+
 
 #pragma endregion
   
