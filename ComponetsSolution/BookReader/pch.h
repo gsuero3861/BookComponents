@@ -30,3 +30,4 @@
 #include "TextView.h"
 #include "VideoView.h"
 #include "ChapterViewer.h"
+#include "StackSlider.h"

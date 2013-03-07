@@ -150,6 +150,7 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </ClInclude>
     <ClInclude Include="SlideViewer.h" />
+    <ClInclude Include="StackSlider.h" />
     <ClInclude Include="StackTest.xaml.h">
       <DependentUpon>StackTest.xaml</DependentUpon>
     </ClInclude>
@@ -235,6 +236,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="SlideViewer.cpp" />
+    <ClCompile Include="StackSlider.cpp" />
     <ClCompile Include="StackTest.xaml.cpp">
       <DependentUpon>StackTest.xaml</DependentUpon>
     </ClCompile>

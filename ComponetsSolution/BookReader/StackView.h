@@ -209,13 +209,9 @@ namespace BookReader
 			void set(float64 value)
 			{
 				this->_fullscreenX =  value  ; 
-				if(this->_datasource != nullptr)
-				{
-					for (int i = 0; i < _numberofitems ; i++)
-					{  
-						((StackViewItem^)this->_thumbsgrid->Children->GetAt(i))->FullScreenPositionX =  value ;
-					}
-				}
+				if(this->_datasource != nullptr) 
+					for (int i = 0; i < _numberofitems ; i++) 
+						((StackViewItem^)this->_thumbsgrid->Children->GetAt(i))->FullScreenPositionX =  value ; 
 			}
 		}
 
@@ -226,13 +222,9 @@ namespace BookReader
 			void set(float64 value)
 			{
 				this->_fullscreenY =  value ; 
-				if(this->_datasource != nullptr)
-				{
-					for (int i = 0; i < _numberofitems ; i++)
-					{  
-						((StackViewItem^)this->_thumbsgrid->Children->GetAt(i))->FullScreenPositionY = value ;
-					}
-				}
+				if(this->_datasource != nullptr) 
+					for (int i = 0; i < _numberofitems ; i++) 
+						((StackViewItem^)this->_thumbsgrid->Children->GetAt(i))->FullScreenPositionY = value ; 
 			}
 		}
 

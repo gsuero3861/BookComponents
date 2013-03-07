@@ -58,7 +58,7 @@ void SlideViewer::initstoryboard()
 {
 	this->_translatestory =  ref new Windows::UI::Xaml::Media::Animation::Storyboard();
 	Windows::Foundation::TimeSpan ts;
-	ts.Duration = 2000000 ;
+	ts.Duration = 1400000 ;
 	Windows::UI::Xaml::Duration dur(ts) ;
 	this->_translateanimation = ref new Windows::UI::Xaml::Media::Animation::DoubleAnimation();
 	this->_translateanimation->Duration = dur ;

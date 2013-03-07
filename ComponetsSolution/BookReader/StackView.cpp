@@ -84,8 +84,9 @@ void StackView::initstackview()
 	this->_thumbsgrid->ManipulationCompleted += ref new ManipulationCompletedEventHandler(this, &BookReader::StackView::ThumbsGrid_ManipulationCompleted_1);
 	this->_thumbsgrid->ManipulationDelta += ref new ManipulationDeltaEventHandler(this, &BookReader::StackView::ThumbsGrid_ManipulationDelta_1);
 	this->Children->Append(this->_thumbsgrid);
+	this->_thumbsgrid->HorizontalAlignment =  Windows::UI::Xaml::HorizontalAlignment::Center ;
 	this->_thumbsgrid->ManipulationMode  = ManipulationModes::All ;
-	this->_thumbsgrid->Background = ref new SolidColorBrush(Windows::UI::Colors::Red);
+	this->_thumbsgrid->Background = ref new SolidColorBrush(Windows::UI::Colors::Transparent);
 
 	this->_fullscreengrid	= ref new Windows::UI::Xaml::Controls::Grid();
 	this->_fullscreengrid->Visibility =  Windows::UI::Xaml::Visibility::Collapsed; // maybe opacity 

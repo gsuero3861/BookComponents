@@ -68,6 +68,7 @@
     <ClCompile Include="TestPage.xaml.cpp" />
     <ClCompile Include="StackTest.xaml.cpp" />
     <ClCompile Include="ItemViewerContent.cpp" />
+    <ClCompile Include="StackSlider.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
@@ -105,6 +106,7 @@
     <ClInclude Include="TestPage.xaml.h" />
     <ClInclude Include="StackTest.xaml.h" />
     <ClInclude Include="ItemViewerContent.h" />
+    <ClInclude Include="StackSlider.h" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest" />

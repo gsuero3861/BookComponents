@@ -8,14 +8,22 @@
     mc:Ignorable="d">
 
     <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
-        <ScrollViewer x:Name="Stackscroll1" HorizontalScrollMode="Enabled" HorizontalScrollBarVisibility="Hidden" Visibility="Collapsed"
+        
+        <local:StackSlider x:Name="_stackslider1" StackItemHeight="300" StackItemWith="400" ></local:StackSlider>
+        
+        <ScrollViewer x:Name="Stackscroll1" HorizontalScrollMode="Enabled" HorizontalScrollBarVisibility="Hidden" 
                       VerticalScrollMode="Disabled" VerticalScrollBarVisibility="Disabled">
             <Grid x:Name="stackcontainer1">
-                <local:StackView x:Name="Stackview1"></local:StackView>
+                <local:StackView x:Name="Stackview1" Background="Azure"></local:StackView>
             </Grid>
         </ScrollViewer>
 
-        <local:SlideViewer x:Name="slider1" ></local:SlideViewer>
+        <local:SlideViewer x:Name="slider1" Visibility="Collapsed" ></local:SlideViewer>
+        
+         
+         
+        
+
     </Grid>
 </Page>
 

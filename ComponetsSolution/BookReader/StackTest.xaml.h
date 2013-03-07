@@ -23,5 +23,8 @@ namespace BookReader
 	private:
 		void loaddata();
 		Platform::Collections::Vector<Platform::String^> ^paths1 ;	
+		BookData::StackDataSource ^ stack1 ; 
+		Platform::Collections::Vector<Platform::String^> ^paths2 ;	
+		BookData::StackDataSource ^ stack2 ; 
 	};
 }
