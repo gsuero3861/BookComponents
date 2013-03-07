@@ -76,10 +76,10 @@ void StackTest::loaddata()
 	for (int i = 15; i >= 0; i--)
 		paths2->Append("ms-appx:///images/img"+ i +".jpg") ;
 		
-	stack1 = ref new  StackDataSource();
-	stack1->ThumbsList = paths2;
-	stack1->MediumList = paths2 ;
-	stack1->FullPageList = paths2 ;
+	stack2 = ref new  StackDataSource();
+	stack2->ThumbsList = paths2;
+	stack2->MediumList = paths2 ;
+	stack2->FullPageList = paths2 ;
 }
 
 

@@ -25,6 +25,7 @@ StackSlider::StackSlider()
 void StackSlider::initstackscontrols()
 {
 	this->_gridstacks = ref new Grid(); 
+	this->Children->Append(this->_gridstacks);
 
 	this->_itemsscroll =  ref new ScrollViewer();
 	this->_itemsscroll->HorizontalScrollMode = Windows::UI::Xaml::Controls::ScrollMode::Enabled ;
@@ -64,8 +65,8 @@ void StackSlider::loadstacks()
 		Stackview1->FullScreenY = 0.0 ;
 		Stackview1->FullSreenItemHeight = 768 ;
 		Stackview1->FullSreenItemWidth  = 1024;  
-		Stackview1->DataSource = _datasource->GetAt(i);
-		//Stackview1->Width = 2*this->_stackitemwidth ;
+		Stackview1->DataSource = _datasource->GetAt(i); 
+		this->_itemspanel->Children->Append(Stackview1);
 
 	}
 }

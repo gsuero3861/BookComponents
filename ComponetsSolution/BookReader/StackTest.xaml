@@ -11,7 +11,7 @@
         
         <local:StackSlider x:Name="_stackslider1" StackItemHeight="300" StackItemWith="400" ></local:StackSlider>
         
-        <ScrollViewer x:Name="Stackscroll1" HorizontalScrollMode="Enabled" HorizontalScrollBarVisibility="Hidden" 
+        <ScrollViewer x:Name="Stackscroll1" HorizontalScrollMode="Enabled" HorizontalScrollBarVisibility="Hidden" Visibility="Collapsed"
                       VerticalScrollMode="Disabled" VerticalScrollBarVisibility="Disabled">
             <Grid x:Name="stackcontainer1">
                 <local:StackView x:Name="Stackview1" Background="Azure"></local:StackView>
